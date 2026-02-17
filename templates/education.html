@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn About Food & Poverty</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="education-container">
+        <h1>Understanding Food Insecurity</h1>
+
+        <!-- 👇 New Intro Section -->
+        <div class="intro-text">
+            <p>
+                Hi, I’m <strong>SLK</strong>, a highschool student passionate about using technology to create positive change. 
+                I built this project to help reduce food waste and connect local communities through donations, awareness, and education. 
+                My goal is to remind everyone that even small acts such as sharing a meal or spreading awareness can make a real difference.
+            </p>
+        </div>
+        <!-- 👆 End Intro Section -->
+
+        <div class="image-row">
+            <img src="{{ url_for('static', filename='/poverty1.jpg') }}" alt="Feeding Communities">
+            <img src="{{ url_for('static', filename='/poverty2.jpg') }}" alt="Helping Hands">
+            <img src="{{ url_for('static', filename='/poverty3.jpg') }}" alt="Community Food Drive">
+        </div>
+
+        <div class="education-text">
+            <p>
+                Around <strong>700-800 million people</strong> worldwide don’t have enough food to lead a healthy life. 
+                Food insecurity isn’t just about hunger—it’s about access to safe, nutritious, and affordable food.
+                It affects families, students, and entire communities every single day.
+            </p>
+
+            <p>
+                By reducing food waste, sharing surplus meals, and supporting local programs,
+                you can help build a more sustainable and caring world. 
+                Every small action, whether it's donating, volunteering, or spreading awareness can create real impact.
+            </p>
+
+            <h3>How You Can Help</h3>
+            <ul>
+                <li>🍎 Donate extra food to <strong>local pantries and drives</strong> in your community.</li>
+                <li>💬 Talk about food insecurity at school or on social media to raise awareness.</li>
+                <li>🛒 Support food banks through monthly contributions or volunteering.</li>
+                <li>📦 Help organize or promote <strong>community fridge</strong> or <strong>zero-waste food programs</strong>.</li>
+            </ul>
+
+            <h3>Organizations Making a Difference</h3>
+            <ul class="resources">
+                <li><a href="https://www.feedingamerica.org" target="_blank">Feeding America</a> – Nationwide network of food banks serving millions.</li>
+                <li><a href="https://www.nohungrychild.org" target="_blank">No Hungry Child</a> – Provides meals and nutrition support to children.</li>
+                <li><a href="https://www.actionagainsthunger.org" target="_blank">Action Against Hunger</a> – Global organization addressing hunger and malnutrition.</li>
+                <li><a href="https://www.foodforward.org" target="_blank">Food Forward</a> – Collects surplus food from markets and redistributes it to those in need (based in California).</li>
+            </ul>
+
+            <p class="closing-line">
+                Together, we can fight hunger <strong>one plate at a time</strong> 💚
+            </p>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="back-link">⬅ Back to List</a>
+    </div>
+</body>
+</html>

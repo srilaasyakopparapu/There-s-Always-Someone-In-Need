@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+
+<body>
+
+    <h1 id="greeting">Welcome!</h1>
+    <button onclick="setName()">Personalize</button>
+
+    <script>
+        function setName() {
+            let name = prompt("What's your name?");
+            if (name) {
+                localStorage.setItem("username", name);
+                updateGreeting();
+            }
+        }
+
+        function updateGreeting() {
+            const name = localStorage.getItem("username");
+            if (name) {
+                document.getElementById("greeting").textContent = "Welcome, " + name + "!";
+            }
+        }
+
+        updateGreeting();
+    </script>
+
+</body>
+</html>

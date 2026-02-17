@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> LOGIN</title>
+        <link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+        <h1>
+            There's always someone in need of Food
+        </h1>
+        {% with messages=get_flashed_messages() %}
+        <ul>
+            {% for msg in messages %}
+            <li>
+                 {{msg}}
+            </li>
+            {% endfor %}
+        {% endwith %}
+        </ul>
+        <div class="container">
+            <img src='{{ url_for("static", filename="/image.png")}}'>
+
+        </div>
+        <div class="login-box">
+            <h2>Admin Login:</h2>
+
+            <form method="post" action="{{ url_for('login') }}">
+                <label>
+                    Enter your name:
+                </label>
+                <input type="text" name="username">
+                <br>
+                <label>
+                    Enter your password:
+                </label>
+                <input type="password" name="password">
+                <br>
+                <input type="submit" value="LOGIN">
+            </form>
+
+
+            <h3>Or continue as a visitor:</h3>
+            <form action="{{ url_for('index') }}">
+                <button type="submit" class="start-btn">Start</button>
+            </form>
+        </div>
+
+    </body>
+</html>

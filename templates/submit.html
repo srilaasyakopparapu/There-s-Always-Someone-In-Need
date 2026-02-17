@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Share Food</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1> Share Your Food</h1>
+    <img src='{{ url_for("static", filename="/donate1.jpg")}}'>
+    <form method="POST">
+        <label>Food Name: <input type="text" name="food_name" required></label><br>
+        <label>Ingredients: <input type="text" name="ingredients" required></label><br>
+        <label>Expiry Date: <input type="date" name="expiry_date" required min="{{min_date}}"></label><br>
+        <label>Packed Status: 
+            <select name="packed_status">
+                <option value="Packed">Packed</option>
+                <option value="Unpacked">Unpacked</option>
+            </select>
+        </label><br>
+        <label>Allergy Info: <input type="text" name="allergy_info"></label><br>
+        <label>Is Free: <input type="checkbox" name="is_free"></label><br>
+        <label>Email Address: <input type="email" name="email"></label><br>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{{url_for('index')}}">⬅ Back to List</a>
+</body>
+</html>
