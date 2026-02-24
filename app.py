@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
 import sqlite3
 from datetime import datetime, timedelta
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
-DATABASE = 'food.db'
+#DATABASE = 'food.db'
 import os 
 if os.environ.get("RENDER"):
     DATABASE = '/data/food.db'
@@ -121,6 +121,19 @@ def delete_food(food_id):
         conn.commit()
     flash("Item deleted successfully!")
     return redirect(url_for("index"))
+
+@app.route("/download")
+def download(): 
+    if not session.get("is_admin"):
+        return redirect(url_for("login"))
+    directory = "/data" if os.environ.get("RENDER") else os.getcwd()
+    #exception/error handling
+    try:
+        return send_from_directory(directory, "food.db", as_attachment = True)
+    except FileNotFoundError:
+        return "Database File Not Found", 404
+
+
 
 if __name__ == '__main__':
     init_db()
