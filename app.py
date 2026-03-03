@@ -53,12 +53,16 @@ def index():
     food_with_expiry = []
     if session.get("is_admin"): 
         for item in items:
-            expiry_date = datetime.strptime(item[3], "%Y-%m-%d")
-            days_left = (expiry_date - today).days
-            food_with_expiry.append({
-                "item": item,
-                "days_left": days_left
-            })
+            if item[3]:
+                try:
+                    expiry_date = datetime.strptime(item[3], "%Y-%m-%d")
+                    days_left = (expiry_date - today).days
+                    food_with_expiry.append({
+                        "item": item,
+                        "days_left": days_left
+                    })
+                except ValueError:
+                    continue
     else:
         for item in items:
             expiry_date = datetime.strptime(item[3], "%Y-%m-%d")
