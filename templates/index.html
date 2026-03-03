@@ -64,7 +64,10 @@
                 <p>Status: {{ food.item[4] }}</p>
                 <p>Allergy Info: {{ food.item[5] }}</p>
                 <p>Free: {{ food.item[6] }}</p>
-                <p>Email: {{food.item[8] }}</p>
+                {% if session.get("is_admin") %}
+                    <p>Email: {{food.item[8]}}</p>
+                {% endif %}
+                
                 <!--Delete Button-->
                 <form action="{{ url_for('delete_food', food_id=food.item[0])}}"
                 method = "POST"
