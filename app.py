@@ -3,12 +3,12 @@ import sqlite3
 from datetime import datetime, timedelta
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
-#DATABASE = 'food.db'
-import os 
-if os.environ.get("RENDER"):
-    DATABASE = '/data/food.db'
-else:
-    DATABASE = 'food.db'
+DATABASE = 'food.db'
+#import os 
+#if os.environ.get("RENDER"):
+   # DATABASE = '/data/food.db'
+#else:
+   # DATABASE = 'food.db'
 
 
 def init_db():
